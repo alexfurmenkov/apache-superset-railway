@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m pip install --no-cache-dir psycopg2
+RUN python3 -m ensurepip --upgrade && \
+    python3 -m pip install --no-cache-dir psycopg2
 
 ENV ADMIN_USERNAME $ADMIN_USERNAME
 ENV ADMIN_EMAIL $ADMIN_EMAIL
